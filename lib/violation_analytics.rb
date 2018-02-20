@@ -36,5 +36,19 @@ class ViolationAnalytics
     end
   end
 
+  def self.print_earliest_dates
+    earliest_date.each { |violation_dates| p violation_dates }
+  end
+
+  def self.latest_date
+    violation_types.map do |type|
+      dates = @violations.find_all { |t| t.violation_type == type }.sort_by(&:date)
+      "#{type}: Latest Date: #{dates.reverse.first.date}"
+    end
+  end
+
+  def self.print_latest_dates
+    earliest_date.each { |violation_dates| p violation_dates }
+  end
 
 end
