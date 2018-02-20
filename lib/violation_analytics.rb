@@ -1,12 +1,12 @@
 require 'csv'
-require 'lib/violation.rb'
+require './lib/violations.rb'
 
 
 class ViolationAnalytics
 
   attr_reader :violations
 
-  def self.parse_csv(csv)
+  def self.parse_csv
     @violations = []
     options = {headers: true, header_converters: :symbol }
     CSV.foreach('data/Violations-2012.csv', options) do |row|
@@ -15,7 +15,14 @@ class ViolationAnalytics
   end
 
   def self.violation_types
-    @violations.map(:type).uniq
+    @violations.map(&:violation_type).uniq
+  end
+
+  def self.count_violations
+    violation_types.map do |type|
+      count = @violations.find_all { |t| t.violation_type == type }.count
+      "#{type}: #{count}"
+    end
   end
 
 end
