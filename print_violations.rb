@@ -1,0 +1,6 @@
+require './lib/violation_analytics'
+
+ViolationAnalytics.parse_csv
+ViolationAnalytics.print_violation_counts
+ViolationAnalytics.print_earliest_dates
+ViolationAnalytics.print_latest_dates
