@@ -51,4 +51,11 @@ class ViolationAnalytics
     earliest_date.each { |violation_dates| p violation_dates }
   end
 
+  def self.print_analytics
+    parse_csv
+    print_violation_counts
+    print_earliest_dates
+    print_earliest_dates
+  end
+
 end

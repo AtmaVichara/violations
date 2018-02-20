@@ -25,6 +25,6 @@ describe "when count_violations is run" do
   end
   it "grabs latest date for each violation" do
     expect(ViolationAnalytics.latest_date.count).to eq(43)
-    expect(ViolationAnalytics.latest_date.first).to eq("Refuse Accumulation: Earliest Date: 2012-12-21 00:00:00")
+    expect(ViolationAnalytics.latest_date.first).to eq("Refuse Accumulation: Latest Date: 2012-12-21 00:00:00")
   end
 end
