@@ -1,9 +1,9 @@
 class Violation
 
-  attr_reader :id, :data, :violation_type
+  attr_reader :id, :date, :violation_type
 
   def initialize(row)
-    @data = row[:date]
+    @date = row[:violation_date]
     @id = row[:id]
     @violation_type = row[:violation_type]
   end
